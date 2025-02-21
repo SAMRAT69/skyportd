@@ -27,7 +27,7 @@ const basicAuth = require('express-basic-auth');
 const bodyParser = require('body-parser');
 const CatLoggr = require('cat-loggr');
 const WebSocket = require('ws');
-const http = require('http');
+const https = require('https');
 const fs = require('node:fs');
 const path = require('path');
 const chalk = require('chalk')
@@ -48,7 +48,7 @@ const docker = new Docker({ socketPath: process.env.dockerSocket });
  * and message reception, parsing messages as JSON and handling them according to their specified event type.
  */
 const app = express();
-const server = http.createServer(app);
+const server = https.createServer(app);
 
 const log = new CatLoggr();
 
